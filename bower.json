@@ -15,5 +15,9 @@
   "moduleType": [
     "amd",
     "globals"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "foundation": "zurb/bower-foundation#~5.5.1"
+  }
 }
