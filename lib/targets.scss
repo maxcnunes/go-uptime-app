@@ -1,0 +1,25 @@
+@import "settings";
+@import "foundation/scss/foundation/components/grid";
+@import "foundation/scss/foundation/components/panels";
+@import "foundation/scss/foundation/components/labels";
+
+#targets {
+  @include grid-row();
+  >div {
+    @media #{$small-only} { @include grid-column(12); }
+    @media #{$medium-up} { @include grid-column(4); }
+    @media #{$large-up} { @include grid-column(3); }
+    >div {
+      @include panel();
+      span.up {
+        @include label($bg:$success-color);
+      }
+      span.down {
+        @include label($bg:$alert-color);
+      }
+      span.none {
+        @include label($bg:$info-color);
+      }
+    }
+  }
+}
