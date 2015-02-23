@@ -1,30 +1,27 @@
-var React = require("react");
+var React = require('react');
+var API = require('./api');
+var api = new API();
 
-
-require("./targets.scss");
-
+require('./targets.scss');
 
 module.exports = React.createClass({
+  getInitialState: function () {
+    return { targets: [] };
+  },
+  componentDidMount: function() {
+    return api.all().then(function(result) {
+      if (this.isMounted()) this.setState({ targets: result });
+    }.bind(this));
+  },
   render: function() {
-    return <section id="targets">
-      <div>
-        <div>
-          <h5><a href="#">google.com</a></h5>
-          <span className="up">up</span>
+    var rows = this.state.targets.map(function (url) {
+      return <div>
+        <div className="up">
+          <h5><a href="#">{url}</a></h5>
         </div>
-      </div>
-      <div>
-        <div>
-          <h5><a href="#">facebook.com</a></h5>
-          <span className="down">down</span>
-        </div>
-      </div>
-      <div>
-        <div>
-          <h5><a href="#">twitter.com</a></h5>
-          <span className="none">not checked yet</span>
-        </div>
-      </div>
-    </section>;
+      </div>;
+    });
+
+    return <section id="targets">{rows}</section>;
   }
 });
