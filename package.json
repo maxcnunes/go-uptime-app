@@ -30,6 +30,7 @@
     "webpack-dev-server": "^1.7.0"
   },
   "dependencies": {
+    "lodash": "^3.3.0",
     "promise": "^6.1.0",
     "react": "^0.12.2",
     "superagent": "^0.21.0",
