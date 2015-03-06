@@ -1,10 +1,14 @@
 var React = require("react");
+var Router = require('react-router');
+var Link = Router.Link;
 
 
 require("./nav-bar.scss");
 
 
 module.exports = React.createClass({
+  mixins: [ Router.Navigation ],
+
   render: function() {
     return <nav className="top-bar" data-topbar="">
       <ul className="title-area">
@@ -18,8 +22,8 @@ module.exports = React.createClass({
 
       <section className="top-bar-section">
         <ul className="right">
-          <li><a href="#">List</a></li>
-          <li><a href="#">New</a></li>
+          <li><Link to="/">List</Link></li>
+          <li><Link to="/create">New</Link></li>
         </ul>
       </section>
     </nav>;
