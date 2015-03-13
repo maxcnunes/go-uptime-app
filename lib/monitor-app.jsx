@@ -1,13 +1,13 @@
-var React = require('react');
-var Router = require('react-router');
-var RouteHandler = Router.RouteHandler;
+import React from 'react';
+import Router from 'react-router';
+import NavBar from './nav-bar.jsx';
+const RouteHandler = Router.RouteHandler;
 
 
-require('./monitor-app.scss');
-var NavBar = require('./nav-bar.jsx');
+import './monitor-app.scss';
 
 
-module.exports = React.createClass({
+export default React.createClass({
   render: function() {
     return <div className="monitor-app">
       <NavBar />

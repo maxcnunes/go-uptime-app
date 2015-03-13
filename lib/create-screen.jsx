@@ -1,13 +1,15 @@
-var React = require('react');
-var Router = require('react-router');
-var API = require('./api');
-var api = new API();
+import React from 'react';
+import Router from 'react-router';
+import API from './api';
 
 
-require('./create-screen.scss');
+const api = new API();
 
 
-module.exports = React.createClass({
+import './create-screen.scss';
+
+
+export default React.createClass({
   mixins: [ Router.Navigation ],
 
   handleSubmit: function () {

@@ -13,6 +13,8 @@
   "author": "",
   "license": "BSD",
   "devDependencies": {
+    "babel-core": "^4.7.8",
+    "babel-loader": "^4.1.0",
     "css-loader": "^0.9.1",
     "es5-shim": "^4.1.0",
     "jasmine": "^2.2.1",
@@ -24,6 +26,7 @@
     "karma-jasmine": "^0.3.5",
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-webpack": "^1.5.0",
+    "react-hot-loader": "^1.2.3",
     "sass-loader": "^0.4.0-beta",
     "style-loader": "^0.8.3",
     "webpack": "^1.5.3",

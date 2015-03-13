@@ -1,13 +1,15 @@
-var _ = require('lodash');
-var React = require('react');
-var API = require('./api');
-var Websocket = require('./websocket');
-var api = new API();
-var websocket = new Websocket();
+import _ from 'lodash';
+import React from 'react';
+import API from './api';
+import Websocket from './websocket';
+const api = new API();
+const websocket = new Websocket();
 
-require('./targets.scss');
 
-module.exports = React.createClass({
+import './targets.scss';
+
+
+export default React.createClass({
   getInitialState: function () {
     websocket.onMessage(this.updateTarget);
     return { targets: [] };

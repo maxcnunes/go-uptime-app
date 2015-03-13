@@ -1,11 +1,11 @@
-var React = require('react');
+import React from 'react';
+import Targets from './targets.jsx';
 
 
-require('./list-screen.scss');
-var Targets = require('./targets.jsx');
+import './list-screen.scss';
 
 
-module.exports = React.createClass({
+export default React.createClass({
   render: function() {
     return <div className="list-screen">
       <h1>List Screen</h1>

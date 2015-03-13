@@ -1,12 +1,12 @@
-var React = require("react");
-var Router = require('react-router');
-var Link = Router.Link;
+import React from 'react';
+import Router from 'react-router';
+const Link = Router.Link;
 
 
-require("./nav-bar.scss");
+import './nav-bar.scss';
 
 
-module.exports = React.createClass({
+export default React.createClass({
   mixins: [ Router.Navigation ],
 
   render: function() {

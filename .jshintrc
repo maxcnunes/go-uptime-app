@@ -4,6 +4,7 @@
   "indent": 2,
   "noempty": true,
   "browser": true,
+  "esnext": true,
   "globals": {
     "module": false,
     "require": true,

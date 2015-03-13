@@ -1,11 +1,11 @@
-var React = require('react');
-var Route = require('react-router').Route;
-var DefaultRoute = require('react-router').DefaultRoute;
+import React from 'react';
+import { Route } from 'react-router';
+import { DefaultRoute } from 'react-router';
 
 
-var Application = require('./monitor-app.jsx');
-var ListScreen = require('./list-screen.jsx');
-var CreateScreen = require('./create-screen.jsx');
+import Application from './monitor-app.jsx';
+import ListScreen from './list-screen.jsx';
+import CreateScreen from './create-screen.jsx';
 
 
 module.exports = <Route name="main" path="/" handler={Application}>
