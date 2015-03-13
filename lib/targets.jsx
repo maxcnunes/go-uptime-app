@@ -18,6 +18,8 @@ module.exports = React.createClass({
     }.bind(this));
   },
   updateTarget: function (event) {
+    if (!this.isMounted()) return;
+
     var target = _.find(this.state.targets, { url: event.target.url });
     if (!target) {
       target = event.target;
