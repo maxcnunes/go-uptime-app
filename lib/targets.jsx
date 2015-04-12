@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import API from './api';
 import Websocket from './websocket';
-const api = new API();
+
 const websocket = new Websocket();
 
 
@@ -15,8 +15,8 @@ export default React.createClass({
     return { targets: [] };
   },
   componentDidMount: function() {
-    api.all().then(function(result) {
       if (this.isMounted()) this.setState({ targets: result });
+    API.Target.all().then(function(result) {
     }.bind(this));
   },
   updateTarget: function (event) {

@@ -3,9 +3,6 @@ import Router from 'react-router';
 import API from './api';
 
 
-const api = new API();
-
-
 import './create-screen.scss';
 
 
@@ -15,7 +12,7 @@ export default React.createClass({
   handleSubmit: function () {
     var url = 'http://' + this.refs.url.getDOMNode().value;
 
-    api.create({ url: url }).then(function  () {
+    API.Target.create({ url: url }).then(function  () {
       this.transitionTo('/');
     }.bind(this));
   },
