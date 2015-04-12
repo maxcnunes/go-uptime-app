@@ -15,8 +15,10 @@ export default React.createClass({
     return { targets: [] };
   },
   componentDidMount: function() {
-      if (this.isMounted()) this.setState({ targets: result });
     API.Target.all().then(function(result) {
+      if (!this.isMounted()) return;
+
+      this.setState({ targets: result.map(this.setStatus) });
     }.bind(this));
   },
   updateTarget: function (event) {
@@ -27,8 +29,17 @@ export default React.createClass({
       target = event.target;
       this.state.targets.push(target);
     }
-    target.status = event.target.status;
+    this.setStatus(target, event);
+
     this.setState({ targets: this.state.targets });
+  },
+  setStatus: function (target, event) {
+    var status = (event && event.target || target).status;
+    target.status = 'none';
+    if (status > 0) {
+      target.status = /^2/.test(status) ? 'up' : 'down';
+    }
+    return target;
   },
   render: function() {
     return <section id="targets">{
