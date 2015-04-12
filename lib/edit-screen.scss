@@ -1,0 +1,14 @@
+@import "settings";
+@import "foundation/scss/foundation/components/labels";
+
+.edit-screen {
+  span.up {
+    @include label($bg:$success-color);
+  }
+  span.down {
+    @include label($bg:$alert-color);
+  }
+  span.none {
+    @include label($bg:$primary-color);
+  }
+}

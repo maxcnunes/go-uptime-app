@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
+import { Link } from 'react-router';
 import API from './api';
 import Websocket from './websocket';
 
@@ -46,7 +47,9 @@ export default React.createClass({
       this.state.targets.map(function (target) {
         return <div key={target.url}>
           <div className={target.status}>
-            <h5><a href="#">{target.url}</a></h5>
+            <h5>
+              <Link to="edit" params={target}>{target.url}</Link>
+            </h5>
           </div>
         </div>;
       })
