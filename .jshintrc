@@ -6,6 +6,7 @@
   "browser": true,
   "esnext": true,
   "globals": {
+    "confirm": false,
     "module": false,
     "require": true,
     "jasmine": false,

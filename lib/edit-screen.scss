@@ -1,5 +1,6 @@
 @import "settings";
 @import "foundation/scss/foundation/components/labels";
+@import "foundation/scss/foundation/components/buttons";
 
 .edit-screen {
   span.up {
@@ -10,5 +11,14 @@
   }
   span.none {
     @include label($bg:$primary-color);
+  }
+
+  input#save {
+    @include button($bg:$primary-color,$padding:$button-sml);
+  }
+
+  input#delete {
+    @include button($bg:$alert-color,$padding:$button-sml);
+    margin-left: 1em;
   }
 }

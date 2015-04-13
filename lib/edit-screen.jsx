@@ -25,6 +25,14 @@ export default React.createClass({
     }.bind(this));
   },
 
+  onDelete: function () {
+    if (!confirm('Are you sure you want to delete this item?')) return false;
+
+    API.Target.delete(this.getParams().id).then(function  () {
+      this.transitionTo('/');
+    }.bind(this));
+  },
+
   componentDidMount: function() {
     var promises = RSVP.hash({
       target: API.Target.findOneById(this.getParams().id),
@@ -54,28 +62,30 @@ export default React.createClass({
             <input type="text" placeholder="Enter your URL..." ref="url" value={this.state.target.url} />
           </div>
         </div>
-        <div className="row collapse">
-          <table>
-            <thead>
-              <tr>
-                <th>Status</th>
-                <th>At</th>
-              </tr>
-            </thead>
-            <tbody>
-                {this.state.tracks.map(function (track) {
-                  return <tr key={track.id}>
-                    <td><span className={track.statusType}>{track.status}</span></td>
-                    <td>{track.createdAt}</td>
-                  </tr>;
-                })}
-            </tbody>
-          </table>
-        </div>
-        <div className="row collapse">
-          <input type="submit" className="button" />
+        <div className="row">
+          <input type="submit" id="save" />
+          <input type="button" id="delete" value="Delete" onClick={this.onDelete} />
         </div>
       </form>
+
+      <div className="row collapse">
+        <table>
+          <thead>
+            <tr>
+              <th>Status</th>
+              <th>At</th>
+            </tr>
+          </thead>
+          <tbody>
+              {this.state.tracks.map(function (track) {
+                return <tr key={track.id}>
+                  <td><span className={track.statusType}>{track.status}</span></td>
+                  <td>{track.createdAt}</td>
+                </tr>;
+              })}
+          </tbody>
+        </table>
+      </div>
     </div>;
   }
 });
