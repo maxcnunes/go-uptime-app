@@ -24,7 +24,6 @@ export default React.createClass({
         <ul className="right">
           <li><Link to="/">List</Link></li>
           <li><Link to="/create">New</Link></li>
-          <li><Link to="/edit">Edit</Link></li>
         </ul>
       </section>
     </nav>;
