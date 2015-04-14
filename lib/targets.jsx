@@ -36,23 +36,32 @@ export default React.createClass({
   },
   setStatus: function (target, event) {
     var status = (event && event.target || target).status;
-    target.status = 'none';
+    target.statusType = 'default';
     if (status > 0) {
-      target.status = /^2/.test(status) ? 'up' : 'down';
+      target.statusType = /^2/.test(status) ? 'success' : 'danger';
     }
     return target;
   },
   render: function() {
-    return <section id="targets">{
-      this.state.targets.map(function (target) {
-        return <div key={target.url}>
-          <div className={target.status}>
-            <h5>
-              <Link to="edit" params={target}>{target.url}</Link>
-            </h5>
-          </div>
-        </div>;
-      })
-    }</section>;
+    return <section id="targets">
+      <div className="row">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Status</th>
+              <th>Target URL</th>
+            </tr>
+          </thead>
+          <tbody>
+              {this.state.targets.map(function (target) {
+                return <tr key={target.id}>
+                  <td><span className={ 'label label-' + target.statusType}>{target.status}</span></td>
+                  <td><Link to="edit" params={target}>{target.url}</Link></td>
+                </tr>;
+              })}
+          </tbody>
+        </table>
+      </div>
+    </section>;
   }
 });

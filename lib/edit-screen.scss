@@ -1,24 +1,14 @@
 @import "settings";
-@import "foundation/scss/foundation/components/labels";
-@import "foundation/scss/foundation/components/buttons";
 
 .edit-screen {
-  span.up {
-    @include label($bg:$success-color);
-  }
-  span.down {
-    @include label($bg:$alert-color);
-  }
-  span.none {
-    @include label($bg:$primary-color);
+  .buttons input {
+    margin-right: 0.5em;
   }
 
-  input#save {
-    @include button($bg:$primary-color,$padding:$button-sml);
-  }
-
-  input#delete {
-    @include button($bg:$alert-color,$padding:$button-sml);
-    margin-left: 1em;
+  table {
+    th:first-child, td:first-child {
+      width: 50px;
+      text-align: center;
+    }
   }
 }

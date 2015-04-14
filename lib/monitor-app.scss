@@ -1,7 +1,13 @@
 @import "settings";
-@import "foundation/scss/normalize";
-@import "foundation/scss/foundation";
 
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
 
 .monitor-app {
 }

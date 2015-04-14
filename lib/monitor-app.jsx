@@ -11,7 +11,9 @@ export default React.createClass({
   render: function() {
     return <div className="monitor-app">
       <NavBar />
-      <RouteHandler/>
+      <div className="container theme-showcase">
+        <RouteHandler/>
+      </div>
     </div>;
   }
 });

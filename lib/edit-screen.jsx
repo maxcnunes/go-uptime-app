@@ -17,7 +17,8 @@ export default React.createClass({
     };
   },
 
-  handleSubmit: function () {
+  handleSubmit: function (e) {
+    e.preventDefault();
     var url = 'http://' + this.refs.url.getDOMNode().value;
 
     API.Target.edit({ url: url }).then(function  () {
@@ -25,7 +26,8 @@ export default React.createClass({
     }.bind(this));
   },
 
-  onDelete: function () {
+  onDelete: function (e) {
+    e.preventDefault();
     if (!confirm('Are you sure you want to delete this item?')) return false;
 
     API.Target.delete(this.getParams().id).then(function  () {
@@ -43,7 +45,7 @@ export default React.createClass({
       if (!this.isMounted()) return;
 
       result.tracks.forEach(function (track) {
-        track.statusType = /^2/.test(track.status) ? 'up' : 'down';
+        track.statusType = /^2/.test(track.status) ? 'success' : 'danger';
       });
 
       this.setState(result);
@@ -52,40 +54,43 @@ export default React.createClass({
 
   render: function() {
     return <div className="edit-screen">
-      <h1>Edit Target</h1>
-      <form onSubmit={this.handleSubmit}>
-        <div className="row collapse">
-          <div className="small-3 large-2 columns">
-            <span className="prefix">http://</span>
-          </div>
-          <div className="small-9 large-10 columns">
-            <input type="text" placeholder="Enter your URL..." ref="url" value={this.state.target.url} />
-          </div>
+      <div className="panel panel-default">
+        <div className="panel-heading">
+          <h3 className="panel-title">Edit</h3>
         </div>
-        <div className="row">
-          <input type="submit" id="save" />
-          <input type="button" id="delete" value="Delete" onClick={this.onDelete} />
-        </div>
-      </form>
+        <div className="panel-body">
+          <form onSubmit={this.handleSubmit}>
+            <div className="form-group">
+              <label for="url">URL</label>
+              <input type="text" className="form-control" id="url" placeholder="Enter your URL" ref="url" value={this.state.target.url} />
+            </div>
+            <div className="buttons">
+              <input type="submit" className="btn btn-primary" />
+              <input type="button" className="btn btn-danger" value="Delete" onClick={this.onDelete} />
+            </div>
+          </form>
 
-      <div className="row collapse">
-        <table>
-          <thead>
-            <tr>
-              <th>Status</th>
-              <th>At</th>
-            </tr>
-          </thead>
-          <tbody>
-              {this.state.tracks.map(function (track) {
-                return <tr key={track.id}>
-                  <td><span className={track.statusType}>{track.status}</span></td>
-                  <td>{track.createdAt}</td>
-                </tr>;
-              })}
-          </tbody>
-        </table>
+          <div className="row">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>At</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {this.state.tracks.map(function (track) {
+                    return <tr key={track.id}>
+                      <td><span className={ 'label label-' + track.statusType}>{track.status}</span></td>
+                      <td>{track.createdAt}</td>
+                    </tr>;
+                  })}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
+
     </div>;
   }
 });

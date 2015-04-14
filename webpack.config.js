@@ -26,7 +26,16 @@ module.exports = {
         loader: 'style!css!sass?outputStyle=expanded&' +
           'includePaths[]=' + (path.resolve(__dirname, './bower_components')) + '&' +
           'includePaths[]=' + (path.resolve(__dirname, './node_modules'))
-      }
+      },
+
+      // Twitter bootstrap configuration
+      { test: /\.js$/, include: /bootstrap-sass/, loader: 'imports?jQuery=jquery,$=jquery' },
+
+      { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,   loader: 'url?limit=10000&minetype=application/font-woff' },
+      { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,  loader: 'url?limit=10000&minetype=application/font-woff' },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    loader: 'url?limit=10000&minetype=application/octet-stream' },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,    loader: 'file' },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    loader: 'url?limit=10000&minetype=image/svg+xml' }
     ]
   }
 };

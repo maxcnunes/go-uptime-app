@@ -8,8 +8,14 @@ import './list-screen.scss';
 export default React.createClass({
   render: function() {
     return <div className="list-screen">
-      <h1>List Screen</h1>
-      <Targets />
+      <div className="panel panel-default">
+        <div className="panel-heading">
+          <h3 className="panel-title">Targets</h3>
+        </div>
+        <div className="panel-body">
+          <Targets />
+        </div>
+      </div>
     </div>;
   }
 });

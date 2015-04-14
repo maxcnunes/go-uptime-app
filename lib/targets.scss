@@ -1,27 +1,10 @@
 @import "settings";
-@import "foundation/scss/foundation/components/grid";
-@import "foundation/scss/foundation/components/panels";
-@import "foundation/scss/foundation/components/labels";
 
 #targets {
-  @include grid-row();
-  padding-top: 1.25rem;
-
-  >div {
-    @media #{$small-only} { @include grid-column(12); }
-    @media #{$medium-up} { @include grid-column(4); }
-    @media #{$large-up} { @include grid-column(3); }
-    a {
-      color: $white;
-    }
-    >div.up {
-      @include panel($bg:$success-color);
-    }
-    >div.down {
-      @include panel($bg:$alert-color);
-    }
-    >div.none {
-      @include panel($bg:$primary-color);
+  table {
+    th:first-child, td:first-child {
+      width: 50px;
+      text-align: center;
     }
   }
 }
