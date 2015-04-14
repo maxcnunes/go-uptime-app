@@ -1,6 +1,7 @@
 import React from 'react';
 import Router from 'react-router';
 import RSVP from 'rsvp';
+import moment from 'moment';
 import API from './api';
 
 
@@ -46,6 +47,7 @@ export default React.createClass({
 
       result.tracks.forEach(function (track) {
         track.statusType = /^2/.test(track.status) ? 'success' : 'danger';
+        track.createdAt = moment(track.createdAt).format('YYYY/MM/DD HH:mm:ss');
       });
 
       this.setState(result);
