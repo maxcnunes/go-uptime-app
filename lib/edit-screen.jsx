@@ -2,10 +2,12 @@ import React from 'react';
 import Router from 'react-router';
 import RSVP from 'rsvp';
 import moment from 'moment';
+import TagsInput from 'react-tagsinput';
 import API from './api';
 
 
 import './edit-screen.scss';
+import './react-tagsinput.scss';
 
 
 export default React.createClass({
@@ -20,9 +22,13 @@ export default React.createClass({
 
   handleSubmit: function (e) {
     e.preventDefault();
-    var url = 'http://' + this.refs.url.getDOMNode().value;
 
-    API.Target.edit({ url: url }).then(function  () {
+    var target = {
+      url: this.refs.url.getDOMNode().value,
+      emails: this.refs.tags.getTags()
+    };
+
+    API.Target.edit(target).then(function  () {
       this.transitionTo('/');
     }.bind(this));
   },
@@ -54,6 +60,10 @@ export default React.createClass({
     }.bind(this));
   },
 
+  validateEmail: function (value) {
+    return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(value);
+  },
+
   render: function() {
     return <div className="edit-screen">
       <div className="panel panel-default">
@@ -65,6 +75,10 @@ export default React.createClass({
             <div className="form-group">
               <label for="url">URL</label>
               <input type="text" className="form-control" id="url" placeholder="Enter your URL" ref="url" value={this.state.target.url} />
+            </div>
+            <div className="form-group">
+              <label>Emails notification</label>
+              <TagsInput ref="tags" tags={this.state.target.emails} placeholder={"Add an email"} validate={this.validateEmail} />
             </div>
             <div className="buttons">
               <input type="submit" className="btn btn-primary" />

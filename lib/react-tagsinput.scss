@@ -1,0 +1,51 @@
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+
+.react-tagsinput {
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 10px;
+  overflow-y: auto;
+  border-radius: 3px;
+}
+
+.react-tagsinput-tag {
+  display: block;
+  border: 1px solid $btn-primary-border;
+  background: $btn-primary-bg;
+  color: $btn-primary-color;
+  font-size: 12px;
+  float: left;
+  padding: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.react-tagsinput-invalid {
+  background: #FBD8DB !important;
+  color: #90111A !important;
+}
+
+.react-tagsinput-remove {
+  font-weight: bold;
+  color: $btn-info-bg;
+  text-decoration: none;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.react-tagsinput-remove:before {
+  content: "x";
+}
+
+.react-tagsinput-input {
+  background: transparent;
+  color: #777;
+  border: 0;
+  font-size: 13px;
+  padding: 5px;
+  margin: 0;
+  width: 180px;
+  outline: none;
+}
