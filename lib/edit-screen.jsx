@@ -78,7 +78,7 @@ export default React.createClass({
             </div>
             <div className="form-group">
               <label>Emails notification</label>
-              <TagsInput ref="tags" tags={this.state.target.emails} placeholder={"Add an email"} validate={this.validateEmail} />
+              <TagsInput ref="tags" tags={this.state.target.emails} placeholder="Add an email" validate={this.validateEmail} />
             </div>
             <div className="buttons">
               <input type="submit" className="btn btn-primary" />

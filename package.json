@@ -40,7 +40,7 @@
     "promise": "^6.1.0",
     "react": "^0.12.2",
     "react-router": "^0.12.4",
-    "react-tagsinput": "^0.3.2",
+    "react-tagsinput": "git+ssh://git@github.com:maxcnunes/react-tagsinput.git#fix-load-tags",
     "rsvp": "^3.0.18",
     "superagent": "^0.21.0",
     "superagent-promise": "^0.2.0",
