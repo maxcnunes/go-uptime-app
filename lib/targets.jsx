@@ -12,10 +12,11 @@ import './targets.scss';
 
 export default React.createClass({
   getInitialState: function () {
-    websocket.onMessage(this.updateTarget);
     return { targets: [] };
   },
   componentDidMount: function() {
+    websocket.onMessage(this.updateTarget);
+
     API.Target.all().then(function(result) {
       if (!this.isMounted()) return;
 
