@@ -74,7 +74,7 @@ export default React.createClass({
         <div className="panel-body">
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
-              <label for="url">URL</label>
+              <label htmlFor="url">URL</label>
               <input type="text" className="form-control" id="url" placeholder="Enter your URL" ref="url" value={this.state.target.url} />
             </div>
             <div className="form-group">
