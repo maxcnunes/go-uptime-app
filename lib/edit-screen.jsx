@@ -24,6 +24,7 @@ export default React.createClass({
     e.preventDefault();
 
     var target = {
+      id: this.getParams().id,
       url: this.refs.url.getDOMNode().value,
       emails: this.refs.tags.getTags()
     };
