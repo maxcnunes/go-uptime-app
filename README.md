@@ -1,23 +1,18 @@
 # go-uptime
 
-Get the AMD module located at `monitor-app.js` and include it in your project.
+Simple monitor server to check uptime of any target reachable through HTTP.
 
-Here is a sample integration:
+The Go Uptime is composed of an [API](https://github.com/maxcnunes/go-uptime-api) and APP separated in different projects.
 
-```js
-require.config({
-  paths: {
-    'react': 'vendor/bower_components/react/react',
-    'MonitorApp': 'monitor-app'
-  }
-});
+## APP
 
-require(['react', 'MonitorApp'], function(React, MonitorApp) {
+This current project is the web user interface for go uptime api.
 
-  React.render(React.createElement(MonitorApp), document.getElementById('widget-container'));
+![](https://raw.githubusercontent.com/maxcnunes/go-uptime-app/master/docs/go-uptime-1.gif)
 
-});
-```
+After some minutes:
+
+![](https://raw.githubusercontent.com/maxcnunes/go-uptime-app/master/docs/go-uptime-2.gif)
 
 ## Development
 
