@@ -8,9 +8,9 @@ module.exports = {
 
   output: {
     path: path.join(__dirname),
-    filename: 'monitor-app.js',
+    filename: 'go-uptime-app.js',
     libraryTarget: 'umd',
-    library: 'MonitorApp'
+    library: 'GoUptimeApp'
   },
 
   externals: {

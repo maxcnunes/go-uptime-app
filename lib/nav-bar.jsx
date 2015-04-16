@@ -19,7 +19,7 @@ export default React.createClass({
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <Link to="/" className="navbar-brand">Monitor</Link>
+          <Link to="/" className="navbar-brand">Go Uptime</Link>
         </div>
         <div id="navbar" className="navbar-collapse collapse">
           <ul className="nav navbar-nav">

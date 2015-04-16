@@ -1,4 +1,4 @@
-# monitor-app
+# go-uptime
 
 Get the AMD module located at `monitor-app.js` and include it in your project.
 

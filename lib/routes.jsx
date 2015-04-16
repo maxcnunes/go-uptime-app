@@ -3,7 +3,7 @@ import { Route } from 'react-router';
 import { DefaultRoute } from 'react-router';
 
 
-import Application from './monitor-app.jsx';
+import Application from './go-uptime-app.jsx';
 import ListScreen from './list-screen.jsx';
 import CreateScreen from './create-screen.jsx';
 import EditScreen from './edit-screen.jsx';
